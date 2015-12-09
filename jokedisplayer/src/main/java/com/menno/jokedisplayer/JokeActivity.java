@@ -1,25 +1,20 @@
-package com.udacity.gradle.builditbigger;
+package com.menno.jokedisplayer;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-
-import com.example.Joker;
-import com.menno.jokedisplayer.JokeActivity;
 
 
-public class MainActivity extends ActionBarActivity {
-    private Joker joker;
+public class JokeActivity extends ActionBarActivity {
+    public static String EXTRA_MESSAGE = " JokeActivity.MESSAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_joke);
 
-        joker = new Joker();
+
     }
 
 
@@ -44,16 +39,4 @@ public class MainActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
-    public void tellJoke(View view){
-        //Toast.makeText(this, joker.GetJoke(), Toast.LENGTH_SHORT).show();
-
-
-        Intent intent = new Intent(this, JokeActivity.class);
-        intent.putExtra(JokeActivity.EXTRA_MESSAGE, joker.GetJoke());
-        startActivity(intent);
-    }
-
-
-
 }
