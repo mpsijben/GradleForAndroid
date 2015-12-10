@@ -11,7 +11,7 @@ import com.example.Joker;
 import com.menno.jokedisplayer.JokeActivity;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements IJokeResponse {
     private Joker joker;
 
     @Override
@@ -22,6 +22,12 @@ public class MainActivity extends ActionBarActivity {
         joker = new Joker();
     }
 
+    public void OnReceiveJoke(String joke)
+    {
+        Intent intent = new Intent(this, JokeActivity.class);
+         intent.putExtra(JokeActivity.EXTRA_MESSAGE, joke);
+        startActivity(intent);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -47,11 +53,9 @@ public class MainActivity extends ActionBarActivity {
 
     public void tellJoke(View view){
         //Toast.makeText(this, joker.GetJoke(), Toast.LENGTH_SHORT).show();
-
-
-        Intent intent = new Intent(this, JokeActivity.class);
-        intent.putExtra(JokeActivity.EXTRA_MESSAGE, joker.GetJoke());
-        startActivity(intent);
+        GetJokeAsyncTask task = new GetJokeAsyncTask();
+        task.delegate = this;
+        task.execute();
     }
 
 
