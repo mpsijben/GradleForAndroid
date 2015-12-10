@@ -21,10 +21,8 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
     // Added for AdMob
-    compile 'com.android.support:multidex:1.0.0'
-    compile project(':javajokes')
+    compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(':jokedisplayer')
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.google.android.gms:play-services:8.3.0'

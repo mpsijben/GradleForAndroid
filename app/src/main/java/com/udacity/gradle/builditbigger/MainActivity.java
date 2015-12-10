@@ -7,19 +7,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.example.Joker;
 import com.menno.jokedisplayer.JokeActivity;
 
 
 public class MainActivity extends ActionBarActivity implements IJokeResponse {
-    private Joker joker;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        joker = new Joker();
     }
 
     public void OnReceiveJoke(String joke)
